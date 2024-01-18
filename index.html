@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body{
+            font-family: Arial, Helvetica, sans-serif;
+        }
+        .header{
+            text-align: center; font-size:24px; color: blue
+        }
+        .container{
+            width:300px; 
+            margin:20px auto; 
+            padding: 3px;
+            border-radius: 4px;
+            background-color: gainsboro;
+        }
+        .but{
+            float: left; 
+            width:50px; 
+            margin: 5px;
+            background-color: silver;
+            text-align: center;
+            padding-top:  5px;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+        .but:hover{
+            background-color: blue;
+            color: white;
+        }
+        .monitor{
+            background-color: black;
+            padding: 5px;
+            color: white;
+            margin: 5px;
+            border-radius: 4px;
+        }
+        .result{
+            background-color: silver;
+            padding: 5px;
+            color: black;
+            text-align: center;
+            cursor: pointer;
+            margin: 5px;
+            border-radius: 4px;
+        }
+    </style>
+</head>
+<body>
+    <div class="header">CALC</div>
+    <div class="container"> 
+        <div class="monitor">temp</div>
+    
+        <div class="but">1</div>
+        <div class="but">2</div>
+        <div class="but">3</div>
+        <div class="but">4</div>
+        <div class="but">5</div>
+        <div class="but">6</div>
+        <div class="but">7</div>
+        <div class="but">8</div>
+        <div class="but">9</div>
+        <div class="but">0</div>
+        <div class="but">+</div>
+        <div class="but">-</div>
+        <div class="but">*</div>
+        <div class="but">/</div>
+        <div class="but">**</div>
+        <div style="clear: both;"></div>
+        <div class="result">=</div>
+    </div>
+       <!-- special scripts for integration in App Gallery - must be placed at the bottom of the HTML after your code -->
+       <script>
+        // custom config for the MTW app 
+        const mtwAppConfig = {
+            border: true // app border in the MTW page                    
+        }
+
+        ///////////////////////////////////////////////////////
+        // implement this functions in order to use private API        
+        const sendPrivateApiRequest = async () => {
+            // your code here:
+            // sendRequestToParent({ cat: 'getAssets' })
+        }        
+
+        const acceptPrivateApiResponse = async (data) => {
+            // process received data here:
+            // console.log(data)
+        }
+
+        // use this in order to send on document load
+        document.addEventListener('DOMContentLoaded', () => {
+            // your code here:
+            //sendRequestToParent({ method: 'getAssets' })
+        })
+
+    </script>
+    <script src="https://morethanwallet.com/appstore/index.js"></script>
+</body>
+</html>
