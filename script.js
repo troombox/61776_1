@@ -1,42 +1,90 @@
-var currentState = 0;
-var actionState = null;
-var leftOperand = 0;
-var rightOperand = 0;
+var currentBuffer = 0;
+var currentUpperString = '';
+var operands = [];
+var actions = [];
 
 const buttonHandlerNumber = (button) => {
     const buttonNumberValue = button.textContent.valueOf();
     var displayValue = 0;
-    if(actionState == null) {
-        displayValue = Number(buttonNumberValue) + Number(leftOperand) * 10;
-        leftOperand = displayValue;
-    } else {
-        displayValue = Number(buttonNumberValue) + Number(rightOperand) * 10;
-        rightOperand = displayValue;
-        
-    }
+    displayValue = Number(buttonNumberValue) + Number(currentBuffer) * 10;
+    currentBuffer = displayValue;
     updateDisplayLower(displayValue.valueOf());
 }
 
-const buttonHandlerBasicAction = (button, actionString) => {
-    if (actionState == null){
-        actionState = actionString;
-        updateDisplayUpper(leftOperand, button)
+const buttonHandlerActionBasic = (button, actionString) => {
+    if (currentBuffer != 0){
+        operands.push(currentBuffer)
+        actions.push(actionString)
+        currentUpperString = currentUpperString + currentBuffer.toString() + ' ' + button.textContent + ' ';
+        currentBuffer = 0;
         updateDisplayLower('')
+        updateDisplayUpper(currentUpperString)
     } else {
         return;
     }
 }
 
+const buttonHandlerActionSpecial = (button, actionString) => {
+    switch(actionString){
+        case 'equals':
+            operands.push(currentBuffer);
+            updateAndSolve();
+            break;
+        case 'clear':
+            updateAndClear();
+            break;
+        case 'backspace':
+            if(currentBuffer > 0){
+                currentBuffer = Math.floor(currentBuffer/10);
+                updateDisplayLower(currentBuffer);
+            }
+            break;
+    }
+}
+
 const updateDisplayLower = (value) => {
     const display = document.getElementById("display-lower");
-    display.textContent = value.toString();
+    display.textContent = value;
 }
 
-const updateDisplayUpper = (value, button) => {
+const updateDisplayUpper = (value) => {
     const display = document.getElementById("display-upper");
-    display.textContent = display.textContent + value + " " + button.textContent + " "
+    display.textContent = value;
 }
 
+
+const updateAndSolve = () => {
+    var leftOperand = operands[0];
+    for (let index = 1; index < operands.length; ++index) {
+        const element = operands[index];
+        switch(actions[index - 1]){
+            case 'addition':
+                leftOperand = leftOperand + operands[index];
+                break;
+            case 'substraction':
+                leftOperand = leftOperand - operands[index];
+                break;
+            case 'multiplication':
+                leftOperand = leftOperand * operands[index];
+                break;
+            case 'division':
+                leftOperand = leftOperand / operands[index];
+                break;
+        }
+    }
+    updateDisplayUpper('');
+    updateDisplayLower(leftOperand);
+}
+
+const updateAndClear = () => {
+    currentBuffer = 0;
+    actionState = null;
+    currentUpperString = '';
+    operands = [];
+    actions = [];
+    updateDisplayUpper('');
+    updateDisplayLower('');
+}
 
 // custom config for the MTW app 
 const mtwAppConfig = {
