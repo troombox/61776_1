@@ -11,6 +11,19 @@ const buttonHandlerNumber = (button) => {
     updateDisplayLower(displayValue.valueOf());
 }
 
+const buttonHandlerValueSpecial = (button, valueString) => {
+    switch(valueString){
+        case 'pi':
+            currentBuffer = Math.PI;
+            updateDisplayLower(currentBuffer);
+            break;
+        case 'e':
+            currentBuffer = Math.E;
+            updateDisplayLower(currentBuffer);
+            break;
+    }
+}
+
 const buttonHandlerActionBasic = (button, actionString) => {
     if (currentBuffer != 0){
         operands.push(currentBuffer)
