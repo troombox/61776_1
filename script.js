@@ -72,7 +72,7 @@ const updateAndSolve = () => {
                 break;
         }
     }
-    updateDisplayUpper('');
+    updateAndClear();
     updateDisplayLower(leftOperand);
 }
 
