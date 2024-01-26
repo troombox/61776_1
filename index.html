@@ -11,7 +11,10 @@
     <div class="header">Sientific Calc</div>
     <div class="container"> 
 
-        <div class="display" id="display"></div>
+        <div class="display">
+            <div class="display-upper" id="display-upper"></div>
+            <div class="display-lower" id="display-lower"></div>
+        </div>
 
         <div class="row-button-m">
             <div class="button button-m">MC</div>
@@ -43,37 +46,37 @@
                 <div class="button button-row">(</div>
                 <div class="button button-row">)</div>
                 <div class="button button-row">n!</div>
-                <div class="button button-row">÷</div>
+                <div class="button button-row" onclick="buttonHandlerBasicAction(this,'division')">÷</div>
             </div>
             
             <div class="row-button-regular">
                 <div class="button button-row" id="2nd_3">x^y</div>
-                <div class="button button-row button-number">7</div>
-                <div class="button button-row button-number">8</div>
-                <div class="button button-row button-number">9</div>
-                <div class="button button-row">×</div>
+                <div class="button button-row button-number" onclick="buttonHandlerNumber(this)">7</div>
+                <div class="button button-row button-number" onclick="buttonHandlerNumber(this)">8</div>
+                <div class="button button-row button-number" onclick="buttonHandlerNumber(this)">9</div>
+                <div class="button button-row" onclick="buttonHandlerBasicAction(this,'multiplication')">×</div>
             </div>
     
             <div class="row-button-regular">
                 <div class="button button-row" id="2nd_4">10^x</div>
-                <div class="button button-row button-number">4</div>
-                <div class="button button-row button-number">5</div>
-                <div class="button button-row button-number">6</div>
-                <div class="button button-row">-</div>
+                <div class="button button-row button-number" onclick="buttonHandlerNumber(this)">4</div>
+                <div class="button button-row button-number" onclick="buttonHandlerNumber(this)">5</div>
+                <div class="button button-row button-number" onclick="buttonHandlerNumber(this)">6</div>
+                <div class="button button-row" onclick="buttonHandlerBasicAction(this,'substraction')">-</div>
             </div>
     
             <div class="row-button-regular">
                 <div class="button button-row" id="2nd_5">log</div>
-                <div class="button button-row button-number">1</div>
-                <div class="button button-row button-number">2</div>
-                <div class="button button-row button-number">3</div>
-                <div class="button button-row">+</div>    
+                <div class="button button-row button-number" onclick="buttonHandlerNumber(this)">1</div>
+                <div class="button button-row button-number" onclick="buttonHandlerNumber(this)">2</div>
+                <div class="button button-row button-number" onclick="buttonHandlerNumber(this)">3</div>
+                <div class="button button-row" onclick="buttonHandlerBasicAction(this,'addition')">+</div>    
             </div>
     
             <div class="row-button-regular">
                 <div class="button button-row" id="2nd_6">ln</div>
                 <div class="button button-row">+/-</div>
-                <div class="button button-row button-number">0</div>
+                <div class="button button-row button-number" onclick="buttonHandlerNumber(this)">0</div>
                 <div class="button button-row">.</div>   
                 <div class="button button-row button-equals">=</div>
             </div>
