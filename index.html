@@ -11,7 +11,7 @@
     <div class="header">Sientific Calc</div>
     <div class="container"> 
 
-        <div class="monitor"></div>
+        <div class="display" id="display"></div>
 
         <div class="row-button-m">
             <div class="button button-m">MC</div>
@@ -31,7 +31,7 @@
             </div>
     
             <div class="row-button-regular">
-                <div class="button button-row">x^2</div>
+                <div class="button button-row" id="2nd_1">x^2</div>
                 <div class="button button-row">1/x</div>
                 <div class="button button-row">|x|</div>
                 <div class="button button-row">exp</div>
@@ -39,7 +39,7 @@
             </div>
     
             <div class="row-button-regular">
-                <div class="button button-row">√x</div>
+                <div class="button button-row" id="2nd_2">√x</div>
                 <div class="button button-row">(</div>
                 <div class="button button-row">)</div>
                 <div class="button button-row">n!</div>
@@ -47,7 +47,7 @@
             </div>
             
             <div class="row-button-regular">
-                <div class="button button-row">x^y</div>
+                <div class="button button-row" id="2nd_3">x^y</div>
                 <div class="button button-row button-number">7</div>
                 <div class="button button-row button-number">8</div>
                 <div class="button button-row button-number">9</div>
@@ -55,7 +55,7 @@
             </div>
     
             <div class="row-button-regular">
-                <div class="button button-row">10^x</div>
+                <div class="button button-row" id="2nd_4">10^x</div>
                 <div class="button button-row button-number">4</div>
                 <div class="button button-row button-number">5</div>
                 <div class="button button-row button-number">6</div>
@@ -63,7 +63,7 @@
             </div>
     
             <div class="row-button-regular">
-                <div class="button button-row">log</div>
+                <div class="button button-row" id="2nd_5">log</div>
                 <div class="button button-row button-number">1</div>
                 <div class="button button-row button-number">2</div>
                 <div class="button button-row button-number">3</div>
@@ -71,44 +71,18 @@
             </div>
     
             <div class="row-button-regular">
-                <div class="button button-row">ln</div>
+                <div class="button button-row" id="2nd_6">ln</div>
                 <div class="button button-row">+/-</div>
                 <div class="button button-row button-number">0</div>
                 <div class="button button-row">.</div>   
-                <div class="button button-row" style="background-color: #196aa7; color: white;">=</div> <!--1e82cd-->
+                <div class="button button-row button-equals">=</div>
             </div>
 
         <div style="clear: both;"></div>
 
-
     </div>
 
-       <!-- special scripts for integration in App Gallery - must be placed at the bottom of the HTML after your code -->
-       <script>
-        // custom config for the MTW app 
-        const mtwAppConfig = {
-            border: true // app border in the MTW page                    
-        }
-
-        ///////////////////////////////////////////////////////
-        // implement this functions in order to use private API        
-        const sendPrivateApiRequest = async () => {
-            // your code here:
-            // sendRequestToParent({ cat: 'getAssets' })
-        }        
-
-        const acceptPrivateApiResponse = async (data) => {
-            // process received data here:
-            // console.log(data)
-        }
-
-        // use this in order to send on document load
-        document.addEventListener('DOMContentLoaded', () => {
-            // your code here:
-            //sendRequestToParent({ method: 'getAssets' })
-        })
-
-    </script>
+    <script src="script.js"></script>
     <script src="https://morethanwallet.com/appstore/index.js"></script>
     
 </body>

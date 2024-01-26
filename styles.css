@@ -26,6 +26,19 @@ body{
     justify-content: space-between;
 }
 
+.button{
+    float: left;  
+    margin: 2px;
+    text-align: center;
+    padding: 5px;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.button:hover{
+    background-color: #e4e4e4;
+}
+
 .button-row{
     width: 40px;
     background-color: #f9f9f9;
@@ -43,20 +56,17 @@ body{
     font-weight: bold;
 }
 
-.button{
-    float: left;  
-    margin: 2px;
-    text-align: center;
-    padding: 5px;
-    border-radius: 4px;
-    cursor: pointer;
+.button-equals{
+    background-color: #196aa7; 
+    color: white;
 }
 
-.button:hover{
-    background-color: #e4e4e4;
+.button-equals:hover{
+    background-color: #1e82cd;
 }
 
-.monitor{
+
+.display{
     background-color: #eaeaea;
     padding: 5px;
     color: black;
