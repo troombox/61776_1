@@ -39,6 +39,10 @@ body{
     border: 1px solid #f3f3f3;
 }
 
+.button-number{
+    font-weight: bold;
+}
+
 .button{
     float: left;  
     margin: 2px;
@@ -53,10 +57,10 @@ body{
 }
 
 .monitor{
-    background-color: black;
+    background-color: #eaeaea;
     padding: 5px;
-    color: white;
+    color: black;
     margin: 5px;
     border-radius: 4px;
-    height: 20px;
+    height: 30px;
 }
