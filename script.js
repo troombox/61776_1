@@ -2,6 +2,11 @@ var currentBuffer = 0;
 var currentUpperString = '';
 var operands = [];
 var actions = [];
+var errorState = false;
+
+const buttonHandlerNaN = () => {
+    updateAndError('Not Implemented');
+}
 
 const buttonHandlerNumber = (button) => {
     const buttonNumberValue = button.textContent.valueOf();
@@ -50,6 +55,8 @@ const buttonHandlerActionSpecial = (button, actionString) => {
             if(currentBuffer > 0){
                 currentBuffer = Math.floor(currentBuffer/10);
                 updateDisplayLower(currentBuffer);
+            } else if (errorState){
+                updateAndClear();
             }
             break;
     }
@@ -97,6 +104,17 @@ const updateAndClear = () => {
     actions = [];
     updateDisplayUpper('');
     updateDisplayLower('');
+    errorState = 0;
+}
+
+const updateAndError = (errorMsg) => {
+    updateAndClear();
+    var msg = 'Error'
+    if(errorMsg != null){
+        msg = errorMsg
+    }
+    updateDisplayLower(msg);
+    errorState = true;
 }
 
 // custom config for the MTW app 
