@@ -44,6 +44,19 @@ const buttonHandlerActionBasic = (button, actionString) => {
 
 const buttonHandlerActionSpecial = (button, actionString) => {
     switch(actionString){
+        case 'factorial':
+            var number_value = 1;
+            for(let index = 1; index <= Number(currentBuffer); ++index){
+                number_value = number_value * index;
+                if(number_value > Number.MAX_SAFE_INTEGER / 2){
+                    updateAndError('Value overflow!');
+                    return;
+                }
+                console.log('nv:' + number_value + ' , index:' + index)
+            }
+            currentBuffer = number_value;
+            updateDisplayLower(currentBuffer);
+            break;
         case 'equals':
             operands.push(currentBuffer);
             updateAndSolve();
